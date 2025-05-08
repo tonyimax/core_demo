@@ -44175,11 +44175,12 @@ namespace std __attribute__ ((__visibility__ ("default")))
 # 7 "/home/dev/Desktop/code/examples/core_demo/../../core/cust_bash64.h" 2
 
 
+
 # 1 "/home/dev/Desktop/code/examples/core_demo/../../core/platform_export.h" 1
-# 10 "/home/dev/Desktop/code/examples/core_demo/../../core/cust_bash64.h" 2
+# 11 "/home/dev/Desktop/code/examples/core_demo/../../core/cust_bash64.h" 2
 
 
-# 11 "/home/dev/Desktop/code/examples/core_demo/../../core/cust_bash64.h"
+# 12 "/home/dev/Desktop/code/examples/core_demo/../../core/cust_bash64.h"
 const wchar_t CHAR_63 = '+';
 const wchar_t CHAR_64 = '/';
 const wchar_t CHAR_PAD = '=';
@@ -44195,12 +44196,29 @@ union unBuffer
     unsigned int block;
 };
 
-class __attribute__ ((visibility("default"))) CCustBase64
-{
-public:
-    CCustBase64();
-    virtual ~CCustBase64();
-    static char* w2c(const wchar_t* wc) {
+
+
+
+
+    class __attribute__ ((visibility("default"))) CCustBase64
+    {
+    public:
+        CCustBase64();
+        virtual ~CCustBase64();
+        static void Encode1(){};
+        static int Encode(const char * pData, int nDataLen, wchar_t szOutBuffer[], int nBufferLen);
+        static int Decode(const wchar_t * pszCode, int nCodeLength,wchar_t szOutBuffer[], int nBufferLen);
+
+    };
+
+
+
+
+
+extern "C" {
+    void Test();
+    char* w2c(const wchar_t* wc) {
+        std::cout<<"===>Test Export Function w2c to .so for C# call it"<<std::endl;
         char* buf{nullptr};
         if (const size_t len = wcslen(wc) + 1; len>0) {
             buf = static_cast<char *>(malloc(len * sizeof(char)));
@@ -44209,10 +44227,7 @@ public:
         }
         return buf;
     }
-
-    static int Encode(const char * pData, int nDataLen, wchar_t szOutBuffer[], int nBufferLen);
-    static int Decode(const wchar_t * pszCode, int nCodeLength,wchar_t szOutBuffer[], int nBufferLen);
-};
+}
 # 3 "/home/dev/Desktop/code/examples/core_demo/main.cpp" 2
 
 int main() {
@@ -44223,13 +44238,13 @@ int main() {
  std::cout << "===test base64 encode===!\n";
     CCustBase64::Encode(str,strlen(str),wc,len);
  const size_t wlen = wcslen(wc) + 1;
- char* out=CCustBase64::w2c(wc);
+ char* out=w2c(wc);
  printf("===> '%s' encode to base64 is: '%s'\n\n",str,out);
  std::cout << "===test base64 encode===!\n";
  printf("===> base64 String '%s' after base64 decode is:",out);
 
  CCustBase64::Decode(wc,wlen,wc,len);
- printf("'%s'\n\n",CCustBase64::w2c(wc));
+ printf("'%s'\n\n",w2c(wc));
 
     return 0;
 }

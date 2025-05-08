@@ -9,13 +9,13 @@ int main() {
 	std::cout << "===test base64 encode===!\n";
     CCustBase64::Encode(str,strlen(str),wc,len);
 	const size_t wlen = wcslen(wc) + 1;
-	char* out=CCustBase64::w2c(wc);
+	char* out=w2c(wc);
 	printf("===> '%s' encode to base64 is: '%s'\n\n",str,out);
 	std::cout << "===test base64 encode===!\n";
 	printf("===> base64 String '%s' after base64 decode is:",out);
 
 	CCustBase64::Decode(wc,wlen,wc,len);
-	printf("'%s'\n\n",CCustBase64::w2c(wc));
+	printf("'%s'\n\n",w2c(wc));
 
     return 0;
 }

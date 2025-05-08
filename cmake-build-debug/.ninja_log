@@ -62,3 +62,9 @@
 191	201	1746668643483658043	CMakeFiles/core_demo.dir/main.cpp.o.modmap	5c5d9b8758840f0e
 202	1433	1746668643494658133	CMakeFiles/core_demo.dir/main.cpp.o	8ecacf8289f17390
 1433	1606	1746668644725668281	core_demo	57584c110b05f4e8
+17	272	1746686453161076581	CMakeFiles/core_demo.dir/main.cpp.o.ddi	79591043c9bc001
+272	299	1746686453417079781	CMakeFiles/core_demo.dir/CXX.dd	5c5d9b8758840f0e
+272	299	1746686453417079781	/home/dev/Desktop/code/examples/core_demo/cmake-build-debug/CMakeFiles/core_demo.dir/CXXModules.json	5c5d9b8758840f0e
+272	299	1746686453417079781	CMakeFiles/core_demo.dir/main.cpp.o.modmap	5c5d9b8758840f0e
+299	1734	1746686453443080106	CMakeFiles/core_demo.dir/main.cpp.o	8ecacf8289f17390
+1735	1948	1746686454879098054	core_demo	57584c110b05f4e8
