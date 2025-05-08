@@ -1,0 +1,3 @@
+/home/dev/Desktop/code/examples/core_demo/cmake-build-debug/CMakeFiles/core_demo.dir
+/home/dev/Desktop/code/examples/core_demo/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/dev/Desktop/code/examples/core_demo/cmake-build-debug/CMakeFiles/rebuild_cache.dir
