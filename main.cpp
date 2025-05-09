@@ -1,6 +1,9 @@
 #include <iostream>
 #include "../../core/cust_bash64.h"
 
+#include "httplib.h"
+
+
 int main() {
     std::cout << "base64 test !\n";
 	constexpr char str[]="https://blog.csdn.net/fittec";
@@ -17,5 +20,11 @@ int main() {
 	CCustBase64::Decode(wc,wlen,wc,len);
 	printf("'%s'\n\n",w2c(wc));
 
+	// HTTP
+	httplib::Client cli("http://qifu-api.baidubce.com");
+	auto res = cli.Get("/ip/geo/v1/district?ip=147.185.133.190");
+	res->status;
+	res->body;
+    printf("%s",res->body.c_str());
     return 0;
 }
